@@ -17,24 +17,33 @@ const reducer = (state = 0, action: any) => {
 
 const store = createStore(reducer);
 
+const inc = () => ({type: 'INC'});
+
+const dec = () => ({type: 'DEC'});
+
+const rnd = (payload: number) => {
+  return {type: 'RND', payload}
+}
+
+
 document
-  .getElementById("inc")
-  ?.addEventListener('click', ()=>{
-    store.dispatch({type: "INC"});
-  });
+.getElementById("inc")
+?.addEventListener('click', ()=>{
+  store.dispatch(inc());
+});
 
-  document
-    .getElementById('dec')
-    ?.addEventListener('click', ()=>{
-      store.dispatch({type: 'DEC'})
-    })
+document
+.getElementById('dec')
+?.addEventListener('click', ()=>{
+  store.dispatch(dec())
+})
 
-    document
-      .getElementById('rnd')
-      ?.addEventListener('click', ()=>{
-        const payload =  Math.floor(Math.random()*10);
-        store.dispatch({type: 'RND', payload})
-      })
+document
+.getElementById('rnd')
+?.addEventListener('click', ()=>{
+  const payload =  Math.floor(Math.random()*10);
+  store.dispatch(rnd(payload))
+        })
 
   const update = () =>{
     const counter = document.getElementById('counter');
