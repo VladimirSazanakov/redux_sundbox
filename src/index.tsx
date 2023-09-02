@@ -8,6 +8,8 @@ import ReactDOM from 'react-dom/client';
 
 import { Provider } from 'react-redux';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import App from './cmponents/App';
 
 const store = createStore(reducer);
@@ -19,10 +21,11 @@ const root = ReactDOM.createRoot(
 const update = () => {
   root.render(
     <React.StrictMode>
-      <Provider store={store}>
-
-        <App />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
     </React.StrictMode>
   );
 
