@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export interface Post {
   userId: number
@@ -36,6 +36,7 @@ export const Article = () => {
       <p>{slug}</p>
       <h3>{post.title}</h3>
       <p>{post.body}</p>
+      <Link to={`/article/${slug}/edit`}>Edit</Link>
 
       <p>This Page for Training react Routing</p>
     </div>

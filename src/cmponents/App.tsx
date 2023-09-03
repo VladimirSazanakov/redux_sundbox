@@ -9,6 +9,8 @@ import { Article } from "./pages/Article";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Layout } from "./Layout";
+import { CreateArticle } from "./pages/CreateArticle";
+import { EditArticle } from "./pages/EditArticle";
 
 const App = () => {
   return (
@@ -19,8 +21,11 @@ const App = () => {
 
           <Route index element={<ArticleList />} />
           <Route path="article/:slug" element={<Article />} />
+          <Route path="article/:slug/edit" element={<EditArticle />} />
+
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="article/new" element={<CreateArticle />} />
           <Route path="*" element={<ArticleList />} />
         </Route>
       </Routes>
